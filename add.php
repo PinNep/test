@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <body style="background-color: #ADD8E6;">
@@ -41,8 +41,8 @@ color: black;
 	<form action="add.php" method="post">
 	<tr>
 		<td height="38" align="center">
-			<input type="radio"  name="Show" value="1" id="RadioGroup1_0">ซ่อนที่เสร็จ 
-			<input  name="Show" type="radio" id="RadioGroup1_1"  value="0">แสดงทั้งหมด &nbsp;
+			<input type="radio"  name="Show" value="1" id="RadioGroup1_0">Hide 
+			<input  name="Show" type="radio" id="RadioGroup1_1"  value="0">Show all &nbsp;
 			<input name="btnSub" type="submit" value="Submit">
 		</td>
 	</tr>
@@ -91,26 +91,12 @@ while($olist = $obj->fetch_array()){
 }}
 if($_POST['Show'] == 1 && $olist[Status] != 1){
 ?>
-	<tr>
-	<th width="100"><div align="center"><a href="statusCh.php?statusTi=<?php echo $olist[Title];?>"><?php echo $sta;?></a></td>
-	<th width="220" > <div align="center"> <?php echo $olist[Title]?></div></th>
-	<th width="120"><div align="center"><?php list($y,$m,$d)=explode('-',$olist[Date]);echo $d.'/'.$m.'/'.$y;?></div></th>
-	<th width="50"> <div align="center"><a class="various iframe" href onClick="window.open('edit.php?editTi=<?php echo $olist[Title];?>','','width=800,height=200'); return false;" ';}">Edit</a></td>  
-	<th width="70"><div align="center"><a href="JavaScript:if(confirm('คุณแน่ใจที่จะลบใช่หรือไม่?') ==  	true){window.location='deleteDB.php?ti=<?php echo $olist[Title];?>';}">Delete</a></td>
-	<th width="70"> <div align="center"><a class="various iframe" href onClick="window.open('detail.php?detailTi=<?php echo $olist[Title];?>','','width=800,height=200'); return false;" ';}">Detail </a></td>  
-	</tr>
+	
 <?php 
 }
 if($_POST['Show'] != 1){
 ?>
-	<tr>
-	<th width="100"><div align="center"><a href="statusCh.php?statusTi=<?php echo $olist[Title];?>"><?php echo $sta;?></a></td>
-	<th width="220" > <div align="center"> <?php echo $olist[Title]?></div></th>
-	<th width="120"><div align="center"><?php list($y,$m,$d)=explode('-',$olist[Date]);echo $d.'/'.$m.'/'.$y;?></div></th>
-	<th width="50"> <div align="center"><a class="various iframe" href onClick="window.open('edit.php?editTi=<?php echo $olist[Title];?>','','width=800,height=200'); return false;" ';}">Edit</a></td>  
-	<th width="70"><div align="center"><a href="JavaScript:if(confirm('คุณแน่ใจที่จะลบใช่หรือไม่?') ==  	true){window.location='deleteDB.php?ti=<?php echo $olist[Title];?>';}">Delete</a></td>
-	<th width="70"> <div align="center"><a class="various iframe" href onClick="window.open('detail.php?detailTi=<?php echo $olist[Title];?>','','width=800,height=200'); return false;" ';}">Detail </a></td>  
-	</tr>
+	
 <?php
 }}}
 
